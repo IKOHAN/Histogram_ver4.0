@@ -1,0 +1,726 @@
+﻿<Window x:Class="Histogram_ver5._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Histogram_ver5._0"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Width="275"
+        Height="565">
+    <Grid>
+        <ScrollViewer CanContentScroll="True"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+            <Grid Margin="0"
+                  Style="{StaticResource Layout}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Separator Grid.Column="0"
+                           Grid.RowSpan="9"
+                           Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                <Separator Grid.Column="3"
+                           Grid.RowSpan="9"
+                           Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                <Separator Grid.Row="1"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2" />
+                <Separator Grid.Row="3"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2" />
+                <Separator Grid.Row="5"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2" />
+                <Separator Grid.Row="7"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2" />
+                <Separator Grid.Row="9"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2" />
+                <StackPanel x:Name="Loading_SP"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Separator Grid.Column="0"
+                                   Grid.RowSpan="2"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Separator Grid.Column="3"
+                                   Grid.RowSpan="2"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Button x:Name="Loading_SP_Load_BTN"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Click="Loading_SP_Load_BTN_Click"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock TextWrapping="WrapWithOverflow">Load image</TextBlock>
+                        </Button>
+                        <Button x:Name="Loading_SP_Restore_BTN"
+                                Grid.Column="2"
+                                Grid.Row="0"
+                                Click="Loading_SP_Restore_BTN_Click"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock TextWrapping="WrapWithOverflow">Restore image</TextBlock>
+                        </Button>
+                        <Expander x:Name="Loading_SP_Params_EXPNDR"
+                                  Grid.Row="1"
+                                  Grid.Column="1"
+                                  Grid.ColumnSpan="2"
+                                  ExpandDirection="Down"
+                                  Header="Choose parameters">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <GroupBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB"
+                                          Grid.Column="0"
+                                          Header="Peaks Search">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_PeakSearch_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="0">
+                                            <RadioButton x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_AllPossible_RB"
+                                                         IsChecked="True"
+                                                         Checked="Loading_SP_Params_EXPNDR_Peaks_Search_GB_AllPossible_RB_Checked"
+                                                         Style="{StaticResource RB}">
+                                                <TextBlock Style="{StaticResource myText}">All<LineBreak />possible</TextBlock>
+                                            </RadioButton>
+                                            <RadioButton x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimbing_RB"
+                                                         IsChecked="False"
+                                                         Checked="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimbing_RB_Checked"
+                                                         Style="{StaticResource RB}">
+                                                <TextBlock Style="{StaticResource myText}">Hill<LineBreak />climbing</TextBlock>
+                                            </RadioButton>
+                                        </StackPanel>
+                                        <StackPanel x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="1"
+                                                    Width="0">
+                                            <Label Style="{StaticResource Layout1}">
+                                                <TextBlock TextAlignment="Left"
+                                                           TextWrapping="WrapWithOverflow">Enter the size of searching window:</TextBlock>
+                                            </Label>
+                                            <TextBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_WindSize_TB"
+                                                     TextAlignment="Center"
+                                                     KeyDown="Filter"
+                                                     Style="{StaticResource Layout}"
+                                                     Text="1"
+                                                     LostFocus="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_WindSize_TB_LostFocus">
+                                                <TextBox.Background>
+                                                    <SolidColorBrush Color="White"
+                                                                     Opacity="1" />
+                                                </TextBox.Background>
+                                            </TextBox>
+                                            <Label Style="{StaticResource Layout1}">
+                                                <TextBlock TextAlignment="Left"
+                                                           TextWrapping="WrapWithOverflow">Enter the number of starts:</TextBlock>
+                                            </Label>
+                                            <TextBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_NumbOfStarts_TB"
+                                                     TextAlignment="Center"
+                                                     KeyDown="Filter"
+                                                     Style="{StaticResource Layout}"
+                                                     Text="1"
+                                                     LostFocus="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_NumbOfStarts_TB_LostFocus">
+                                                <TextBox.Background>
+                                                    <SolidColorBrush Color="White"
+                                                                     Opacity="1" />
+                                                </TextBox.Background>
+                                            </TextBox>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_Accept_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_Accept_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Accept</TextBlock>
+                                            </Button>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_Deny_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Search_GB_HillClimb_SP_Deny_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Deny</TextBlock>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB"
+                                          Grid.Column="1"
+                                          Header="Peaks Filter">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="0">
+                                            <RadioButton x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Original_RB"
+                                                         IsChecked="True"
+                                                         Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Original_RB_Checked"
+                                                         Style="{StaticResource RB}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">None</TextBlock>
+                                            </RadioButton>
+                                            <Separator />
+                                            <RadioButton x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB"
+                                                         Unchecked="FiltersUnchecked">
+                                                <StackPanel>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Neighbors_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Neighbors_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Neighbors</TextBlock>
+                                                        <!--Pristavka-->
+                                                    </CheckBox>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_MoveWindow_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_MoveWindow_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Moveable window</TextBlock>
+                                                    </CheckBox>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_TanSign_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_TanSign_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Tangens sign</TextBlock>
+                                                    </CheckBox>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Triangle_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Triangle_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Triangle</TextBlock>
+                                                    </CheckBox>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeHeight_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeHeight_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Relative hight</TextBlock>
+                                                    </CheckBox>
+                                                    <CheckBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_CrossLevelLine_CB"
+                                                              IsChecked="False"
+                                                              Checked="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_CrossLevelLine_CB_Checked"
+                                                              Style="{StaticResource CB}"
+                                                              Unchecked="UncheckedFilters">
+                                                        <TextBlock TextWrapping="WrapWithOverflow">Cross level line</TextBlock>
+                                                    </CheckBox>
+                                                </StackPanel>
+                                                <RadioButton.Style>
+                                                    <Style BasedOn="{StaticResource RB_Panel}"
+                                                           TargetType="RadioButton">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Neighbors_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="RadioButton.IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_MoveWindow_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_TanSign_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_Triangle_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeHeight_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding ElementName=Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_CrossLevelLine_CB, Path=IsChecked}"
+                                                                         Value="True">
+                                                                <Setter Property="IsChecked"
+                                                                        Value="True" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </RadioButton.Style>
+                                            </RadioButton>
+                                        </StackPanel>
+                                        <StackPanel x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="1"
+                                                    Width="0">
+                                            <Label Style="{StaticResource Layout1}">
+                                                <TextBlock TextAlignment="Left"
+                                                           TextWrapping="WrapWithOverflow">Enter the size of window:</TextBlock>
+                                            </Label>
+                                            <TextBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_WinSize_TB"
+                                                     TextAlignment="Center"
+                                                     KeyDown="Filter"
+                                                     Style="{StaticResource Layout}"
+                                                     Text="1"
+                                                     LostFocus="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_WinSize_TB_LostFocus">
+                                                <TextBox.Background>
+                                                    <SolidColorBrush Color="White"
+                                                                     Opacity="1" />
+                                                </TextBox.Background>
+                                            </TextBox>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_Accept_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_Accept_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Accept</TextBlock>
+                                            </Button>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_Deny_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_WindSize_SP_Deny_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Deny</TextBlock>
+                                            </Button>
+                                        </StackPanel>
+                                        <StackPanel x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="1"
+                                                    Width="0">
+                                            <Label Style="{StaticResource Layout1}">
+                                                <TextBlock TextAlignment="Left"
+                                                           TextWrapping="WrapWithOverflow">Enter difference in percent:</TextBlock>
+                                            </Label>
+                                            <TextBox x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_RelativeLvl_TB"
+                                                     TextAlignment="Center"
+                                                     KeyDown="Filter"
+                                                     Style="{StaticResource Layout}"
+                                                     Text="1"
+                                                     LostFocus="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_RelativeLvl_TB_LostFocus">
+                                                <TextBox.Background>
+                                                    <SolidColorBrush Color="White"
+                                                                     Opacity="1" />
+                                                </TextBox.Background>
+                                            </TextBox>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_Accept_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_Accept_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Accept</TextBlock>
+                                            </Button>
+                                            <Button x:Name="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_Deny_BTN"
+                                                    Click="Loading_SP_Params_EXPNDR_Peaks_Filter_GB_PeaksFilter_SP_Filter_RB_RelativeLvl_SP_Deny_BTN_Click"
+                                                    Style="{StaticResource myBtntrue}">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Deny</TextBlock>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="Splitting_SP"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"
+                               Style="{StaticResource Layout1}">
+                            <TextBlock TextAlignment="Left">Splitting</TextBlock>
+                        </Label>
+                        <Separator Grid.Row="1"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Style="{StaticResource Layout1}">
+                            <TextBlock>Rows</TextBlock>
+                        </Label>
+                        <Label Grid.Row="2"
+                               Grid.Column="2"
+                               Style="{StaticResource Layout1}">
+                            <TextBlock>Columns</TextBlock>
+                        </Label>
+                        <TextBox x:Name="Splitting_SP_Rows_TB"
+                                 Grid.Row="3"
+                                 Grid.Column="1"
+                                 TextAlignment="Center"
+                                 KeyDown="Filter"
+                                 Style="{StaticResource Layout}"
+                                 Text="1"
+                                 LostFocus="Splitting_SP_Rows_TB_LostFocus">
+                            <TextBox.Background>
+                                <SolidColorBrush Color="White"
+                                                 Opacity="1" />
+                            </TextBox.Background>
+                        </TextBox>
+                        <TextBox x:Name="Splitting_SP_Columns_TB"
+                                 Grid.Row="3"
+                                 Grid.Column="2"
+                                 TextAlignment="Center"
+                                 KeyDown="Filter"
+                                 Style="{StaticResource Layout}"
+                                 Text="1"
+                                 LostFocus="Splitting_SP_Columns_TB_LostFocus">
+                            <TextBox.Background>
+                                <SolidColorBrush Color="White"
+                                                 Opacity="1" />
+                            </TextBox.Background>
+                        </TextBox>
+                        <Separator Grid.Row="4"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+                        <Button x:Name="Splitting_SP_Split_BTN"
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock TextAlignment="Center">Split</TextBlock>
+                        </Button>
+                        <Separator Grid.Row="6"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+                        <Button x:Name="Splitting_SP_Unite_BTN"
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock TextAlignment="Center">Unite</TextBlock>
+                        </Button>
+                        <Separator Grid.Column="0"
+                                   Grid.RowSpan="8"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Separator Grid.Column="3"
+                                   Grid.RowSpan="8"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="Scanning_SP"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Separator Grid.Column="0"
+                                   Grid.RowSpan="4"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Separator Grid.Column="3"
+                                   Grid.RowSpan="4"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Button x:Name="Scanning_SP_Analize_BTN"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Style="{StaticResource myBtntrue}"
+                                Click="Scanning_SP_Analize_BTN_Click">
+                            <TextBlock>Analize</TextBlock>
+                        </Button>
+                        <Separator Grid.Row="1"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+                        <RadioButton x:Name="Scanning_SP_Image_RB"
+                                     Grid.Row="2"
+                                     Grid.Column="1"
+                                     IsChecked="True"
+                                     Checked="Scanning_SP_Image_RB_Checked"
+                                     Style="{StaticResource RB}">
+                            <TextBlock>Image</TextBlock>
+                        </RadioButton>
+                        <RadioButton x:Name="Scanning_SP_Parts_RB"
+                                     Grid.Row="2"
+                                     Grid.Column="2"
+                                     Checked="Scanning_SP_Parts_RB_Checked"
+                                     Style="{StaticResource RB}">
+                            <TextBlock>Parts</TextBlock>
+                        </RadioButton>
+                        <Expander x:Name="Scanning_SP_Parameters_EXPNDR"
+                                  Grid.Row="3"
+                                  Grid.Column="1"
+                                  Grid.ColumnSpan="2"
+                                  ExpandDirection="Down"
+                                  Header="Choose parameters">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <GroupBox x:Name="Scanning_SP_Parameters_EXPNDR_Dist_GB"
+                                          Header="Distance"
+                                          Grid.Column="0">
+                                    <StackPanel x:Name="Scanning_SP_Parameters_EXPNDR_Dist_GB_Dist_SP"
+                                                VerticalAlignment="Center">
+                                        <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Dist_GB_Dist_SP__NormDifference_RB"
+                                                     IsChecked="True"
+                                                     Checked="Scanning_SP_Parameters_EXPNDR_Dist_GB_Dist_SP__NormDifference_RB_Checked"
+                                                     Style="{StaticResource RB}">
+                                            <TextBlock TextWrapping="WrapWithOverflow">Norm difference</TextBlock>
+                                        </RadioButton>
+                                        <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Dist_GB_Dist_SP_DifferenceNorm_RB"
+                                                     IsChecked="False"
+                                                     Checked="Scanning_SP_Parameters_EXPNDR_Dist_GB_Dist_SP_DifferenceNorm_RB_Checked"
+                                                     Style="{StaticResource RB}">
+                                            <TextBlock TextWrapping="WrapWithOverflow">Difference norm</TextBlock>
+                                        </RadioButton>
+                                    </StackPanel>
+                                </GroupBox>
+                                <GroupBox x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB"
+                                          Header="Norma"
+                                          Grid.Column="1">
+                                    <Grid x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_GRD">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Stretch"
+                                                    Grid.Column="0">
+                                            <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Default_RB"
+                                                         Style="{StaticResource RB}"
+                                                         IsChecked="True"
+                                                         Checked="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Default_RB_Checked">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Default</TextBlock>
+                                            </RadioButton>
+                                            <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Brightness_RB"
+                                                         Style="{StaticResource RB}"
+                                                         Checked="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Brightness_RB_Checked">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Brightness</TextBlock>
+                                            </RadioButton>
+                                            <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Evklid_RB"
+                                                         IsChecked="False"
+                                                         Style="{StaticResource RB}"
+                                                         Checked="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Evklid_RB_Checked">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Evklid</TextBlock>
+                                            </RadioButton>
+                                            <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Manhatten_RB"
+                                                         IsChecked="False"
+                                                         Style="{StaticResource RB}" Checked="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Manhatten_RB_Checked">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Manhatten</TextBlock>
+                                            </RadioButton>
+                                            <RadioButton x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Max_RB"
+                                                         IsChecked="False"
+                                                         Style="{StaticResource RB}"
+                                                         Checked="Scanning_SP_Parameters_EXPNDR_Norma_GB_FilterMenu_SP_Max_RB_Checked">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Max</TextBlock>
+                                            </RadioButton>
+                                        </StackPanel>
+                                        <StackPanel Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP"
+                                                    Grid.Column="1"
+                                                    Width="0">
+                                            <TextBlock TextWrapping="WrapWithOverflow">Введите пороговое значение</TextBlock>
+                                            <TextBox x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_FilterValue_TB"
+                                                     TextAlignment="Center"
+                                                     KeyDown="Filter"
+                                                     Style="{StaticResource Layout}"
+                                                     Text="1"
+                                                     LostFocus="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_FilterValue_TB_LostFocus">
+                                                <TextBox.Background>
+                                                    <SolidColorBrush Color="White"
+                                                                     Opacity="1" />
+                                                </TextBox.Background>
+                                            </TextBox>
+                                            <Button x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_Accept_BTN"
+                                                    Style="{StaticResource myBtntrue}"
+                                                    Click="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_Accept_BTN_Click">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Accept</TextBlock>
+                                            </Button>
+                                            <Button x:Name="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_Deny_BTN"
+                                                    Style="{StaticResource myBtntrue}"
+                                                    Click="Scanning_SP_Parameters_EXPNDR_Norma_GB_Threshold_SP_Deny_BTN_Click">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Deny</TextBlock>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </GroupBox>
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="Modifying_SP"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Separator Grid.Column="0"
+                                   Grid.RowSpan="5"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Separator Grid.Column="3"
+                                   Grid.RowSpan="5"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Grid.ColumnSpan="2"
+                               Style="{StaticResource Layout1}">
+                            <TextBlock>Processing</TextBlock>
+                        </Label>
+                        <Separator Grid.Row="1"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2" />
+                        <Button x:Name="Modifying_SP_Negative_BTN"
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Grid.RowSpan="3"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock>Negative</TextBlock>
+                        </Button>
+                        <Label Grid.Row="2"
+                               Grid.Column="2"
+                               Style="{StaticResource Layout1}">
+                            <TextBlock TextWrapping="WrapWithOverflow">Kernel size</TextBlock>
+                        </Label>
+                        <TextBox x:Name="Modifying_SP_Kernelsize_TB"
+                                 Grid.Row="3"
+                                 Grid.Column="2"
+                                 TextAlignment="Center"
+                                 KeyDown="Filter"
+                                 Style="{StaticResource Layout}"
+                                 Text="1"
+                                 LostFocus="Modifying_SP_Kernelsize_TB_LostFocus">
+                            <TextBox.Background>
+                                <SolidColorBrush Color="White"
+                                                 Opacity="1" />
+                            </TextBox.Background>
+                        </TextBox>
+                        <Button x:Name="Modifying_SP_Blur_BTN"
+                                Grid.Row="4"
+                                Grid.Column="2"
+                                Style="{StaticResource myBtntrue}">
+                            <TextBlock>Blur</TextBlock>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="Displaying_SP"
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Height="auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox x:Name="Displaying_SP_Channel_CBOX"
+                                  Grid.Column="0"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Selector.SelectionChanged="Displaying_SP_Channel_CBOX_SelectionChanged"
+                                  Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBoxItem Selector.IsSelected="True">
+                                <TextBlock Style="{StaticResource myText}">Choose<LineBreak />channel</TextBlock>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Separator Grid.Column="1"
+                                   Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+                        <ComboBox x:Name="Displaying_SP_Segment_CBOX"
+                                  Grid.Column="2"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Selector.SelectionChanged="Displaying_SP_Segment_CBOX_SelectionChanged"
+                                  Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBoxItem Selector.IsSelected="True">
+                                <TextBlock Style="{StaticResource myText}">Choose<LineBreak />segment</TextBlock>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+                <StackPanel x:Name="Mode_SP"
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                    <RadioButton x:Name="Mode_SP_RGB_RB"
+                                 Grid.Column="0"
+                                 Margin="5"
+                                 IsChecked="True"
+                                 Checked="Mode_SP_RGB_RB_Checked"
+                                 Style="{StaticResource RB}">
+                        <TextBlock>RGB</TextBlock>
+                    </RadioButton>
+                    <RadioButton x:Name="Mode_SP_HSV_RB"
+                                 Grid.Column="1"
+                                 Margin="5"
+                                 Checked="Mode_SP_HSV_RB_Checked"
+                                 Style="{StaticResource RB}">
+                        <TextBlock>HSV</TextBlock>
+                        </RadioButton>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

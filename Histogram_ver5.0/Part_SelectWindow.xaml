@@ -1,0 +1,15 @@
+﻿<Window x:Class="Histogram_ver5._0.Part_SelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Histogram_ver5._0"
+        mc:Ignorable="d"
+        Title="PartSelectWindow"
+        Closing="Window_Closing">
+    <!--Width="470"
+        Height="294"-->
+    <Grid x:Name="Parts">
+
+    </Grid>
+</Window>
