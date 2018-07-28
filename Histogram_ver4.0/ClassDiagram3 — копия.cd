@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Histogram_ver4._0.Histogram">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="histogram" Hidden="true" />
+      <Method Name="ImageCounter" Hidden="true" />
+      <Method Name="RelateFrequnce" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAACAAAIgAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Histogram\Histogram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Histogram_Part" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <Members>
+      <Field Name="leftdelta" Hidden="true" />
+      <Field Name="modeMap" Hidden="true" />
+      <Field Name="position" Hidden="true" />
+      <Field Name="rightdelta" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BBAAgAAAAAAAAAQAAgAAIAgAgAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Histogram\Histogram_Part.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetMap" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Image">
+    <Position X="5.5" Y="8.75" Width="1.5" />
+    <Members>
+      <Field Name="data" Hidden="true" />
+      <Field Name="height" Hidden="true" />
+      <Field Name="map" Hidden="true" />
+      <Method Name="Ok" Hidden="true" />
+      <Method Name="PixelHunt" Hidden="true" />
+      <Field Name="scheme" Hidden="true" />
+      <Field Name="width" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GetState" Type="Histogram_ver4._0.IColor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="10.003" />
+        <Point X="14" Y="10.003" />
+        <Point X="14" Y="5.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ABAAEEAABAAACAQgTAAAAEAAAAAABBAAAAARAAAAAAA=</HashCode>
+      <FileName>Image\Image.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Data" />
+      <Property Name="this[System.Int32, System.Int32]" />
+      <Property Name="this[System.Int32]" />
+      <Property Name="GetState" />
+      <Property Name="GetMap" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.CLayer">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <Members>
+      <Field Name="clusters" Hidden="true" />
+      <Field Name="getCComponent" Hidden="true" />
+      <Field Name="state" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAJAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Layer\CLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Mask">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <Members>
+      <Field Name="height" Hidden="true" />
+      <Field Name="heightBound" Hidden="true" />
+      <Field Name="map" Hidden="true" />
+      <Method Name="MaskSize" Hidden="true" />
+      <Field Name="width" Hidden="true" />
+      <Field Name="widthBound" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABAAgAKQASAAAAERAAAAAAAAAECAAAAAAAAA=</HashCode>
+      <FileName>Mask\Mask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Parts">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <Members>
+      <Field Name="column" Hidden="true" />
+      <Method Name="GetImgParts" Hidden="true" />
+      <Method Name="Ok" Hidden="true" />
+      <Field Name="parts" Hidden="true" />
+      <Field Name="row" Hidden="true" />
+    </Members>
+    <AssociationLine Name="this[System.Int32, System.Int32]" Type="Histogram_ver4._0.Image_Project" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="5.096" />
+        <Point X="7" Y="5.096" />
+        <Point X="7" Y="6.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.551" Y="0.137" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAACABAAAAGQAAAAgAAAAABAAAAAAA=</HashCode>
+      <FileName>Parts\Parts.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="this[System.Int32, System.Int32]" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.Pixel">
+    <Position X="0.5" Y="10" Width="1.5" />
+    <Members>
+      <Field Name="color" Hidden="true" />
+      <Field Name="position" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GetColor" Type="Histogram_ver4._0.IColor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="11.596" />
+        <Point X="15.188" Y="11.596" />
+        <Point X="15.188" Y="5.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAIAgAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Pixel\Pixel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetColor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.Image_Project">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <Members>
+      <Method Name="Analize_image" Hidden="true" />
+      <Field Name="firstChannel" Hidden="true" />
+      <Field Name="firstHistogram" Hidden="true" />
+      <Field Name="Genstate" Hidden="true" />
+      <Field Name="histRange" Hidden="true" />
+      <Field Name="image" Hidden="true" />
+      <Field Name="layState" Hidden="true" />
+      <Field Name="secondChannel" Hidden="true" />
+      <Field Name="secondHistogram" Hidden="true" />
+      <Field Name="thirdChannel" Hidden="true" />
+      <Field Name="thirdHistogram" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GetState" Type="Histogram_ver4._0.IState" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="7.603" />
+        <Point X="7.375" Y="7.603" />
+        <Point X="7.375" Y="8.781" />
+        <Point X="9" Y="8.781" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>UIQAAEEBAABAEBAAFAAAAAAQEAABEAAAEAAQAACCAAA=</HashCode>
+      <FileName>Project\Image_Project.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetImage" />
+      <Property Name="GetFirstHistogram" />
+      <Property Name="GetSecondHistogram" />
+      <Property Name="GetThirdHistogram" />
+      <Property Name="GetFirstLayer" />
+      <Property Name="GetSecondLayer" />
+      <Property Name="GetThirdLayer" />
+      <Property Name="GetState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.HSVState" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
+    <AssociationLine Name="ColorState" Type="Histogram_ver4._0.IColor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.75" Y="3.103" />
+        <Point X="15.75" Y="4.375" />
+        <Point X="14.875" Y="4.375" />
+        <Point X="14.875" Y="4.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.97" Y="0.082" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\HSVState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ColorState" />
+      <Property Name="GetRange" />
+      <Property Name="GetOutput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.RGBState" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <AssociationLine Name="ColorState" Type="Histogram_ver4._0.IColor" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.969" Y="3.103" />
+        <Point X="12.969" Y="4.375" />
+        <Point X="14.188" Y="4.375" />
+        <Point X="14.188" Y="4.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\RGBState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ColorState" />
+      <Property Name="GetRange" />
+      <Property Name="GetOutput" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.StatsForUnite" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Members>
+      <Field Name="average" Hidden="true" />
+      <Field Name="center" Hidden="true" />
+      <Method Name="CenterSearch" Hidden="true" />
+      <Method Name="Clust_Assign" Hidden="true" />
+      <Field Name="dispersion" Hidden="true" />
+      <Field Name="firstHistogram" Hidden="true" />
+      <Field Name="image" Hidden="true" />
+      <Field Name="pixmap" Hidden="true" />
+      <Field Name="secondHistogram" Hidden="true" />
+      <Field Name="thirdHistogram" Hidden="true" />
+      <Field Name="volume" Hidden="true" />
+    </Members>
+    <AssociationLine Name="GetImage" Type="Histogram_ver4._0.Image" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.938" Y="5.632" />
+        <Point X="0.938" Y="9.625" />
+        <Point X="5.5" Y="9.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetCenter" Type="Histogram_ver4._0.IColor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.625" Y="3.5" />
+        <Point X="0.625" Y="0.235" />
+        <Point X="12.047" Y="0.235" />
+        <Point X="12.047" Y="5" />
+        <Point X="13.75" Y="5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ADgAAAAAAAAAAAAAEAAAAQQQMAAAAEAQEAIQAgAyAAA=</HashCode>
+      <FileName>Statistic\StatsForUnite.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetMap" />
+      <Property Name="GetImage" />
+      <Property Name="GetFirstHist" />
+      <Property Name="GetSecondHist" />
+      <Property Name="GetThirdHist" />
+      <Property Name="GetCenter" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Histogram_ver4._0.IColor" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAEAAAAAAA=</HashCode>
+      <FileName>Color\IColor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IRange" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAA=</HashCode>
+      <FileName>Histogram\IRange.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IOutputState" Collapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAQAAAAABAAAAAAAACAgAEAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\IOutputState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IState" Collapsed="true">
+    <Position X="9" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

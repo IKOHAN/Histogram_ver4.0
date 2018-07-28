@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Histogram_ver4._0.HSV" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAHAAQJAMAAAAAAA=</HashCode>
+      <FileName>Color\HSV.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.RGB" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAQAUAAAAAAAAAAHAIAQAFAAAAAAA=</HashCode>
+      <FileName>Color\RGB.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Controller" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Controller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.OutOfRange" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Except.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Except" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Except.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Histogram">
+    <Position X="6.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAACAAAIgAAAAAAAAgAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Histogram\Histogram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Histogram_Part" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAAgAAAAAAAAAQAAgAAIAgAgAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Histogram\Histogram_Part.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.HSVRange" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAA=</HashCode>
+      <FileName>Histogram\HSVRange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.RGBRange" BaseTypeListCollapsed="true">
+    <Position X="21" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAA=</HashCode>
+      <FileName>Histogram\RGBRange.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Image">
+    <Position X="3.75" Y="4.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABBAEEAABAAACAQgTAAAAEAAAAAABBAAAAARAAAAAAA=</HashCode>
+      <FileName>Image\Image.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Data" />
+      <Property Name="GetMap" />
+      <Property Name="GetState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.CLayer" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAACAAAEAAAAAAAJAAEAABAAAAAAAA=</HashCode>
+      <FileName>Layer\CLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.FlatCLayer" Collapsed="true">
+    <Position X="35.5" Y="10.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="Histogram_ver4._0.FlatCLayer.Filter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Layer\FlatCLayer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAiBAAAAAIYEAABAAQCEBSEIAAQAECAAQ=</HashCode>
+      <FileName>Layer\FlatCLayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Histogram_ver4._0.LapFlat" Collapsed="true">
+    <Position X="36.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAMAAAAAAAAAAAIAAAAAAAAABAAAAAAAAAAAiAAAgA=</HashCode>
+      <FileName>Layer\ICLayerState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.LapCLayer" Collapsed="true">
+    <Position X="37.75" Y="10.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="Histogram_ver4._0.LapCLayer.Filter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Layer\LapCLayer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAiBAAAAAIYEAABAAQCEBSEIAAQAECAAQ=</HashCode>
+      <FileName>Layer\LapCLayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Logger" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAZBFACAgAdBAhEBEECgwAQCgAEQQEgQACABBKAgA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.ColorConvert" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAACAACAAA=</HashCode>
+      <FileName>Manipulation\ColorConvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.IncorrectSchemeInput" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Manipulation\ColorConvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Image_Processing" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAgAAAAAAAAAAAAAAAAAAAAACIAAAEAAAAAAA=</HashCode>
+      <FileName>Manipulation\Image_Processing.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Mask" Collapsed="true">
+    <Position X="5.5" Y="9.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABAAgAKQASAAAAERAAAAAAAAAECAAAAAAAAA=</HashCode>
+      <FileName>Mask\Mask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.CTake" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAA=</HashCode>
+      <FileName>Output\CTake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.HSVOutput" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAQAAAAABAAAAAAAACAgAEAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\HSVOutput.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Output" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EUQEAEBAAEAAEBAIAAAAAAAEQAAAgAAEAgAAAAAAAAA=</HashCode>
+      <FileName>Output\Output.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.RGBOutput" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAQAAAAABAAAAAAAACAgAEAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\RGBOutput.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.DistribPack" Collapsed="true">
+    <Position X="37.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAgABAJAAACAAEAACQAEARAECABAAgAAACAAU=</HashCode>
+      <FileName>Pack\DistibPack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Pack" Collapsed="true">
+    <Position X="36.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAAAAABAEAAgAAAEAAAAEASABAAACAACAQQIA=</HashCode>
+      <FileName>Pack\IPack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.UnitePack" Collapsed="true">
+    <Position X="35.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAgAAAJAAACAAEAACQAEARAGCEBAAgSAACAAU=</HashCode>
+      <FileName>Pack\UnitePack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Histogram_ver4._0.Parts" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAAAAAAAAEAAADABAAAAGQAAAAgAAAAABAABAAAA=</HashCode>
+      <FileName>Parts\Parts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.Pixel">
+    <Position X="13.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAIAgAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Pixel\Pixel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetColor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Histogram_ver4._0.Image_Project" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UIQAAEEBAABAEBAAFAAAAAAQEAABEAAAEAAQAACCAAA=</HashCode>
+      <FileName>Project\Image_Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Histogram_ver4._0.HSVState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\HSVState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.RGBState" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\RGBState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ColorState" />
+      <Property Name="GetOutput" />
+      <Property Name="GetRange" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.StatsForUnite" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="9" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="GetFirstHist" Type="Histogram_ver4._0.Histogram" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.938" Y="11.776" />
+        <Point X="10.938" Y="14.062" />
+        <Point X="7.75" Y="14.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetImage" Type="Histogram_ver4._0.Image" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="9.312" />
+        <Point X="4.786" Y="9.312" Type="JumpStart" />
+        <Point X="4.62" Y="9.312" Type="JumpEnd" />
+        <Point X="4.482" Y="9.312" Type="JumpStart" />
+        <Point X="4.315" Y="9.312" Type="JumpEnd" />
+        <Point X="4.094" Y="9.312" />
+        <Point X="4.094" Y="7.411" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetSecondHist" Type="Histogram_ver4._0.Histogram" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="11.529" />
+        <Point X="10.125" Y="11.529" />
+        <Point X="10.125" Y="13.375" />
+        <Point X="7.75" Y="13.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ADgAAAAAAAAAAAAAEAAAAQQQMAAAAEAQEAIQAgAyAAA=</HashCode>
+      <FileName>Statistic\StatsForUnite.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetCenter" />
+      <Property Name="GetFirstHist" />
+      <Property Name="GetImage" />
+      <Property Name="GetMap" />
+      <Property Name="GetThirdHist" />
+      <Property Name="GetSecondHist" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Histogram_ver4._0.UndefinedNorma">
+    <Position X="52.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>UndefinedNorma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Histogram_ver4._0.IColor">
+    <Position X="1" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAEAAAAAAA=</HashCode>
+      <FileName>Color\IColor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IRange">
+    <Position X="27.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAA=</HashCode>
+      <FileName>Histogram\IRange.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IObservable">
+    <Position X="50" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>IObservable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IObserver">
+    <Position X="29.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.ICLayerState">
+    <Position X="46.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAQEIAAQAAAAAA=</HashCode>
+      <FileName>Layer\ICLayerState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IOutput">
+    <Position X="29.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EUAAAEBAAEAAEBAIAAAAAAAEQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\IOutput.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetState" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IOutputState">
+    <Position X="25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAQAAAAABAAAAAAAACAgAEAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\IOutputState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IPack">
+    <Position X="1" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAACAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pack\IPack.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="this[System.Int32]" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IState">
+    <Position X="46.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>State\IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Histogram_ver4._0.IStats">
+    <Position X="1" Y="8" Width="1.5" />
+    <AssociationLine Name="GetCenter" Type="Histogram_ver4._0.IColor" FixedFromPoint="true">
+      <Path>
+        <Point X="1.188" Y="10.132" />
+        <Point X="1.188" Y="16.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetImage" Type="Histogram_ver4._0.Image" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="8.658" />
+        <Point X="2.875" Y="8.658" />
+        <Point X="2.875" Y="5.305" />
+        <Point X="3.75" Y="5.305" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetMap" Type="Histogram_ver4._0.Mask" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="10.125" />
+        <Point X="4.315" Y="10.125" Type="JumpStart" />
+        <Point X="4.482" Y="10.125" Type="JumpEnd" />
+        <Point X="5.5" Y="10.125" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetSecondHist" Type="Histogram_ver4._0.Histogram" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="10.132" />
+        <Point X="2.5" Y="12.663" />
+        <Point X="4.315" Y="12.663" Type="JumpStart" />
+        <Point X="4.482" Y="12.663" Type="JumpEnd" />
+        <Point X="6.25" Y="12.663" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GetThirdHist" Type="Histogram_ver4._0.Histogram" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.812" Y="10.132" />
+        <Point X="1.812" Y="11.446" />
+        <Point X="1.806" Y="11.446" />
+        <Point X="1.806" Y="14.113" />
+        <Point X="4.315" Y="14.113" Type="JumpStart" />
+        <Point X="4.482" Y="14.113" Type="JumpEnd" />
+        <Point X="6.25" Y="14.113" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ADAAAAAAAAAAAAAEAAAAAQAQIAAAAEAQAAIAAAAQAAA=</HashCode>
+      <FileName>Statistic\IStats.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetCenter" />
+      <Property Name="GetFirstHist" />
+      <Property Name="GetImage" />
+      <Property Name="GetMap" />
+      <Property Name="GetSecondHist" />
+      <Property Name="GetThirdHist" />
+    </ShowAsAssociation>
+  </Interface>
+  <Delegate Name="Histogram_ver4._0.GetComponent" Collapsed="true">
+    <Position X="49.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Histogram\Histogram.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.Adder" Collapsed="true">
+    <Position X="45.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.PartSelect" Collapsed="true">
+    <Position X="45.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.GetOutColor" Collapsed="true">
+    <Position X="52.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Output\Output.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.Distance" Collapsed="true">
+    <Position X="47.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAACAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Pack\IPack.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.LimiT" Collapsed="true">
+    <Position X="54.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pack\UnitePack.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Histogram_ver4._0.GetNorma" Collapsed="true">
+    <Position X="51" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Statistic\IStats.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
