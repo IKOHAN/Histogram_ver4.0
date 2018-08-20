@@ -1,0 +1,121 @@
+        void AddOrUnite(IList<bool[]> clusters, bool[] newmask)
+        {
+            bool flag = true;
+            if (clusters.Count != 0)
+            {
+                for (int i = 0; i < clusters.Count; i++)
+                {
+                    if (MapsCrossing(newmask, clusters[i]))
+                    {
+                        bool[] tmp = UniteMaps(clusters[i], newmask);
+                        clusters.RemoveAt(i);
+                        clusters.Add(tmp);
+                        flag = false;
+                    }
+                }
+                if (flag)
+                    clusters.Add(newmask);
+            }
+            else
+            {
+                clusters.Add(newmask);
+            }
+        }
+        void SameSearch(ref List<bool[]> H, ref List<bool[]> O, int LoOkOnIndx, IPack[,] Packs, Point LoOkOnPos,Point size)
+        {
+            int column = Packs.GetLength(0);
+            int row = Packs.GetLength(1);
+            int indx_r = LoOkOnPos.X;
+            int indx_c = LoOkOnPos.Y;
+            var LoOkOnParts = Packs[indx_r, indx_c].GetClusters[LoOkOnIndx] as StatsForDistrib;
+            bool flagunique1 = false;
+            bool flagunique2 = false;
+            var OnUnite = new List<bool[]>();
+            OnUnite.Add(Parttoentire(LoOkOnParts.GetImage, LoOkOnParts.GetMap, size.X, size.Y));
+            if (indx_c + 1 < column)
+            {
+                var tmph = GetMatch(LoOkOnParts, Packs[indx_r, indx_c + 1], RightStripe, LeftStripe, size);
+                if (tmph == null)
+                    flagunique1 = true;
+                else
+                if (tmph.Count != 0)
+                    OnUnite.AddRange(tmph);
+            }
+            else
+                flagunique1 = true;
+            if (indx_r + 1 < row)
+            {
+                var tmpv = GetMatch(LoOkOnParts, Packs[indx_r + 1, indx_c], DownStripe, UpStripe, size);
+                if (tmpv == null)
+                    flagunique2 = true;
+                else
+                if (tmpv.Count != 0)
+                    OnUnite.AddRange(tmpv);
+            }
+            else
+                flagunique2 = true;
+            if (flagunique1 && flagunique2)
+                O.Add(LoOkOnParts.GetMap);
+            else
+                H.Add(UniteMaps(OnUnite));
+        }
+        List<bool[]> GetMatch(StatsForDistrib LoOkOnClust, IPack neighborClust, Stripe stripeLoOkOn, Stripe neighbor,Point size)//, IImage_Project LoOk, IImage_Project neighborr)
+        {
+            var res = new List<bool[]>();
+            int w1, w2, h1, h2;
+            StatsForDistrib s1 = LoOkOnClust;
+            w1 = s1.GetImage.Width;
+            h1 = s1.GetImage.Height;
+            for (int j = 0; j < neighborClust.GetClusters.Count; j++)
+            {
+                var s2 = neighborClust[j] as StatsForDistrib;
+                w2 = s2.GetImage.Width;
+                h2 = s2.GetImage.Height;
+                if (Statistic_test(s1, s2))
+                {
+                    if (Unite(stripeLoOkOn(s1.GetMap, w1,h1), neighbor(s2.GetMap, w2,h2)))
+                    {
+                        var tmps1map = Parttoentire(s1.GetImage, s1.GetMap, size.X, size.Y);
+                        var tmps2map = Parttoentire(s2.GetImage, s2.GetMap, size.X, size.Y);
+                        res.Add(UniteMaps(tmps1map, tmps2map));
+                    }
+                }
+
+            }
+            if (res.Count == 0)
+                res = null;
+            return res;
+        }
+        bool[,] UniteHMaps(int w1 ,int w2 ,int h,bool[] map1, bool[] map2)
+        {
+            var res = new bool[h,w1+w2];
+            for (int i = 0; i < res.GetLength(0); i++)
+            {
+                for (int j = 0; j < w1; j++)
+                {
+                    res[i,j] = map1[i*w1+j];
+                }
+                for (int j = w1; j < res.GetLength(1); j++)
+                {
+                    res[i, j] = map2[i * w2 + j - w1];
+                }
+            }
+            return res;
+        }
+        bool[,] UniteVMaps(int h1, int h2, int w, bool[] map1, bool[] map2)
+        {
+            var res = new bool[h1+h2, w];
+            for (int i = 0; i < res.GetLength(0); i++)
+            {
+                for (int j = 0; j < w&&i<h1; j++)
+                {
+                    res[i, j] = map1[i * w + j];
+                }
+                for (int j = 0; j < w && i >= h1; j++)
+                {
+                    res[i, j] = map2[( i - h1 ) * w + j];
+                }
+            }
+            return res;
+        }
+

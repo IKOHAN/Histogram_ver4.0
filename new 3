@@ -1,0 +1,183 @@
+  public DistribPack(Image_Project img)
+        {
+            distance = ND;
+            norm = Brightness;
+            volume_limit = 0.005;
+            pack = new List<IStats>();
+            List<IColor> prevcenters = CentersLoad(img);
+            var tmplist = GetClustMask(img, prevcenters);
+
+            for (int i = 0; i < tmplist.Count; i++)
+            {
+                pack.Add(new StatsForDistrib(img, tmplist[i], norm));
+            }
+           pack= UniteSame(img, pack);
+        }
+        public IPack Create(Image_Project img, Parts parts)
+        {
+            return new DistribPack(img, parts);
+        }
+        public DistribPack(Image_Project img, Parts parts)
+        {
+            distance = DN;
+            norm = Evcklid;
+            volume_limit = 0.015;
+            var size = new Point(img.GetImage.Width, img.GetImage.Height);
+            pack = new List<IStats>();
+            int row = parts.Row;
+            int column = parts.Column;
+            IPack[,] tmppack = new IPack[row, column];
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < column; j++)
+                {
+                    tmppack[i, j] = new DistribPack().Create(parts[i, j]);
+                }
+            }
+        }
+        List<IStats> UniteSame(Image_Project img, List<IStats> clust)
+        {
+            var res = clust;
+            for (int i = 0; i < res.Count - 1; i++)
+            {
+                var s1 = res[i] as StatsForDistrib;
+                for (int j = i + 1; j < res.Count; j++)
+                {
+                    var s2 = res[j] as StatsForDistrib;
+                    // if(DispersionLimit(s1)&&DispersionLimit(s2))
+                    if (Statistic_test(s1, s2))
+                    {
+                        res.Add(new StatsForDistrib().Create(img, UniteMaps(s1.GetMap, s2.GetMap), norm));
+                        res.RemoveAt(j);
+                        res.RemoveAt(i);
+                        i=-1;
+                        break;
+                    }
+                }
+            }
+            return res;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        List<Mask> GetClustMask(Image_Project img, List<IColor> center)
+        {
+            var empty = new List<bool>();
+            var clustvol = new List<int>();
+            var res = new List<Mask>();
+            int w = img.GetImage.Width;
+            int h = img.GetImage.Height;
+            int length = img.GetImage.GetLength();
+            int numb_clust = 0;
+            float dist = int.MaxValue;
+            for (int i = 0; i < center.Count; i++)
+            {
+                clustvol.Add(0);
+                empty.Add(true);
+                res.Add(new Mask(w,h,true));
+            }
+            for (int i = 0; i < h; i++)
+            {
+                for (int j = 0; j < w; j++)
+                {
+                    Pixel tmp = img.GetImage[i,j];
+                    numb_clust = -1;
+                    dist = int.MaxValue;
+                    for (int n = 0; n < center.Count; n++)
+                    {
+                        float tmpd = (float) distance(tmp.GetColor, center[n], norm);
+                        if (tmpd < dist)
+                        {
+                            dist = tmpd;
+                            numb_clust = n;
+                        }
+                    }
+                    res[numb_clust].GetMask[i,j] = true;
+                    clustvol[numb_clust]++;
+                    empty[numb_clust] = false;
+                }
+            }
+            EmptyCleaner(empty, center, clustvol, res);
+            //SmallClear(res, center, clustvol, img.GetImage.GetLength());
+            return res;
+        }
+        void SmallClear(List<Mask> maps, List<IColor> center, List<int> clustv, int length)
+        {
+            for (int i = 0; i < maps.Count; i++)
+            {
+                if (( (double) clustv[i] / (double) length ) < volume_limit)
+                {
+                    int tm = NearestCenter(i, center, DN);////////
+                    Mask tmp = UniteMaps(maps[i], maps[tm]);
+                    int tmpl = ( tm < i ) ? tm : i;
+                    int tmpr = ( tm >= i ) ? tm : i;
+                    maps.Add(tmp);
+                    maps.RemoveAt(tmpr);
+                    maps.RemoveAt(tmpl);
+                    clustv.Add(clustv[tm] + clustv[i]);
+                    clustv.RemoveAt(tmpr);
+                    clustv.RemoveAt(tmpl);
+                    center.Add(center[tm]);
+                    center.RemoveAt(tmpr);
+                    center.RemoveAt(tmpl);
+                    i = -1;
+                }
+            }
+        }
+        void EmptyCleaner(List<bool> empty, List<IColor> center, List<int> clustv, List<Mask> maps)
+        {
+            for (int i = 0; i < empty.Count; i++)
+            {
+                if (empty[i])
+                {
+                    maps.RemoveAt(i);
+                    clustv.RemoveAt(i);
+                    center.RemoveAt(i);
+                    empty.RemoveAt(i);
+                    i--;
+                }
+            }
+        }
+        List<IColor> CentersUpdate(Image_Project img,List<Mask> Mask)
+        {
+            var res = new List<IColor>();
+            for (int i = 0; i < Mask.Count; i++)
+            {
+                var tmp = new float[3];
+                tmp[0] = 0;
+                tmp[1] = 0;
+                tmp[2] = 0;
+                int l = 0;
+                for (int j = 0; j < img.GetImage.Height; j++)
+                    for (int n = 0; n < img.GetImage.Width; n++)
+                    {
+                        if (Mask[i][j, n])
+                        {
+                            l++;
+                            tmp[0] += img.GetImage[j, n].GetColor.GetVal1;
+                            tmp[1] += img.GetImage[j, n].GetColor.GetVal2;
+                            tmp[2] += img.GetImage[j, n].GetColor.GetVal3;
+                        }
+                    }
+                tmp[0] /= l;
+                tmp[1] /= l;
+                tmp[2] /= l;
+                res.Add(img.GetState.ColorState.Create(tmp));
+            }
+            return res;
+        }
+
+
+      
